@@ -14,12 +14,17 @@
 Auth::routes();
 
 Route::get('/', function () {
-    if (Auth::check()){
-        return redirect('/notifications');
-    } else {
-        return redirect('/login');
-    }
+    return view('welcome');
 });
+
+
+//Route::get('/', function () {
+//    if (Auth::check()){
+//        return redirect('/notifications');
+//    } else {
+//        return redirect('/login');
+//    }
+//});
 
 //Route::middleware(['auth'])->group(function(){
 //    Route::get('notifications',function(){

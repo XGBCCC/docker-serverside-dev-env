@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::prefix('v1')->group(function(){
+
     Route::get('public-key/version','KeyController@getPublicKeyVersion');
     Route::get('public-key','KeyController@getPublicKey');
 
