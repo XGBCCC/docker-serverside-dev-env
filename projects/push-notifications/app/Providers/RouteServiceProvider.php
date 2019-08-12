@@ -26,6 +26,9 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+        Route::bind('device', function($value) {
+            return Device::where('uuid', $value)->first() ?? abort(404);
+        });
     }
 
     /**

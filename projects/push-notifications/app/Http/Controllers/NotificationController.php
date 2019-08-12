@@ -9,11 +9,13 @@ class NotificationController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return NotificationCollection
      */
     public function index()
     {
         //
+        return new NotificationCollection(
+            Notification::orderBy('updated_at', 'desc')->get());
     }
 
     /**
@@ -35,6 +37,19 @@ class NotificationController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = request()->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'badge' => 'required',
+            'locale' => 'required',
+            'sound' => 'required',
+            'environment' => 'required'
+        ]);
+
+        $notification = Notification::create($validated);
+        event(new NewNotification($notification));
+
+        return response()->json($notification);
     }
 
     /**
