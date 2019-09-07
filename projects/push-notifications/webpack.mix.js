@@ -11,5 +11,20 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+const jsScripts = [
+    'resources/js/app.js'
+];
+
+const cssScripts = [
+    'public/css/app.css',
+    'public/css/colors.css'
+];
+
+mix.js(jsScripts, 'public/js/vendor.js')
+    .sass('resources/sass/app.scss', 'public/css/app.css')
+    .sass('resources/sass/colors.scss', 'public/css/colors.css')
+    .styles(cssScripts, 'public/css/vendor.css');
+
+if (mix.inProduction()) {
+    mix.version();
+}

@@ -15,9 +15,12 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        Registered::class => [
-            SendEmailVerificationNotification::class,
+        'App\Events\NewNotification' => [
+            'App\Listeners\PushNewNotification'
         ],
+        'App\Events\APNFinished' => [
+            'App\Listeners\SendAPNFinishedNotification'
+        ]
     ];
 
     /**

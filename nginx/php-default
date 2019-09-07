@@ -2,7 +2,7 @@ server {
     listen 80;
     server_name apn.boxue.io;
 
-    root /var/www/push-notifications/current/public;
+    root /home/bo.jing/code/boxue/docker-serverside-dev-env/projects/push-notifications/public;
 
     index index.html index.htm index.php;
     charset utf-8;

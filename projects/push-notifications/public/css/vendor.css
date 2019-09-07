@@ -10644,3 +10644,28 @@ a.text-dark:focus {
   }
 }
 
+
+.el-color-primary-text {
+  color: #303133;
+}
+
+.el-color-regular-text {
+  color: #606266;
+}
+
+.el-color-secondary-text {
+  color: #909399;
+}
+
+.el-color-placeholder-text {
+  color: #C0C4CC;
+}
+
+.el-color-primary-blue-bg {
+  background-color: #344955 !important;
+}
+
+.el-color-secondary-orange-text {
+  color: #F9AA33 !important;
+}
+

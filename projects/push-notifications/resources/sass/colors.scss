@@ -1,0 +1,25 @@
+@import 'variables';
+
+.el-color-primary-text {
+  color: $primary-text;
+}
+
+.el-color-regular-text {
+  color: $regular-text;
+}
+
+.el-color-secondary-text {
+  color: $secondary-text;
+}
+
+.el-color-placeholder-text {
+  color: $placeholder-text;
+}
+
+.el-color-primary-blue-bg {
+  background-color: $primary-blue !important;
+}
+
+.el-color-secondary-orange-text {
+  color: $secondary-orange !important;
+}

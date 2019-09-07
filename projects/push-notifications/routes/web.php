@@ -1,5 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,25 +15,25 @@
 |
 */
 
-Auth::routes();
+Route::get('/', function() {
+    if (Auth::check()) {
+        return redirect('/notifications');
+    }
+    else {
+        return redirect('/login');
+    }
+});
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes(); // Laravel handles login
+
+Route::middleware(['auth'])->group(function() {
+    Route::get('/{any}', function() {
+        return view('app');
+    });
 });
 
 
-//Route::get('/', function () {
-//    if (Auth::check()){
-//        return redirect('/notifications');
-//    } else {
-//        return redirect('/login');
-//    }
-//});
 
-//Route::middleware(['auth'])->group(function(){
-//    Route::get('notifications',function(){
-//        return view('notifications',[
-//            'activePage' => 2
-//        ]);
-//    });
-//});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
